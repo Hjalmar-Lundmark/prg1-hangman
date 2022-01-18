@@ -10,6 +10,7 @@ public class hangman {
         String usedWords = "";
         int kvar = 0;
 
+        System.out.println("Ordet är " + ord.length() + " bokstäver långt");
         for (int i = 0; i < 69; i++){
             String gissning = JOptionPane.showInputDialog("Bokstav?" + "(Bara en bokstav)");
             if (ord.contains(gissning)){
@@ -27,7 +28,7 @@ public class hangman {
                     break;
                 }
             }
-            System.out.println("Använda ord: "+ usedWords + " på ett ord på: " + ord.length() + " bokstäver");
+            System.out.println("Använda bokstäver: "+ usedWords + " av ett ord på " + ord.length() + " bokstäver");
             System.out.println("Bokstäver som blivit fel: " + fel);
             kvar = 9-antal_fel;
             System.out.println("Felaktiga gissningar kvar: " + kvar);
@@ -39,6 +40,7 @@ public class hangman {
         } else {
             if (antal_fel == 9){
                 System.out.println("Du förlorade!");
+                System.out.println("Ordet var: " + ord);
             } else {
                 System.out.println("ERROR");
             }
