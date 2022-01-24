@@ -3,31 +3,27 @@ import javax.swing.*;
 public class hangman {
     public static void main(String[] args) {
         String ord = "yxa";
-        String ord2 = "";
         int vinst = 0;
         String fel = "";
         int antal_fel = 0;
         String usedWords = "";
-        int kvar = 0;
-        int indexOf = 0;
+        int kvar;
 
-        for (int o = 0; o < ord.length(); o++){
-            if (ord.charAt(o) == ' '){
-                ord2 = ord2 + ' ';
-            } else {
-                ord2 = ord2 + '_';
-            }
+        char[] ord3 = new char[ord.length()];
+        for (int u = 0; u < ord.length(); u++){
+            ord3[u] = '_';
         }
 
-        System.out.println("Ordet är: " + ord2);
+
+        System.out.println("Ordet är: ");
+        System.out.println(ord3);
         System.out.println("Ordet är " + ord.length() + " bokstäver långt");
+        System.out.println("");
         for (int i = 0; i < 69; i++){
             String gissning = JOptionPane.showInputDialog("Bokstav?" + "(Bara en bokstav)");
             char charGissning = gissning.charAt(0);
             if (ord.contains(gissning)){
-                indexOf = ord.indexOf(gissning);
-                ord2 = ord2.replace(ord2.charAt(indexOf), charGissning);
-
+                ord3[ord.indexOf(gissning)] = charGissning;
 
                 usedWords = usedWords + gissning;
                 vinst +=1;
@@ -43,8 +39,8 @@ public class hangman {
                     break;
                 }
             }
-            System.out.println("Ordet är: " + ord2);
-            System.out.println("Använda bokstäver: "+ usedWords + " av ett ord på " + ord.length() + " bokstäver");
+            System.out.println("Ordet är: ");
+            System.out.println(ord3);
             System.out.println("Bokstäver som blivit fel: " + fel);
             kvar = 9-antal_fel;
             System.out.println("Felaktiga gissningar kvar: " + kvar);
