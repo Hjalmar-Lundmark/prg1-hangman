@@ -1,34 +1,36 @@
 import javax.swing.*;
+import java.util.Arrays;
 
 public class hangman {
     public static void main(String[] args) {
         String ord = "yxa";
-        int vinst = 0;
+        String gissning = "";
         String fel = "";
         int antal_fel = 0;
-        String usedWords = "";
         int kvar;
 
-        char[] ord3 = new char[ord.length()];
-        for (int u = 0; u < ord.length(); u++){
-            ord3[u] = '_';
+        char[] ord2 = new char[ord.length()];
+        for (int i = 0; i < ord.length(); i++){
+            ord2[i] = '_';
         }
 
+        char[] ordArray = new char[ord.length()];
+        for (int i = 0; i < ord.length(); i++){
+            ordArray[i] = ord.charAt(i);
+        }
 
         System.out.println("Ordet är: ");
-        System.out.println(ord3);
+        System.out.println(ord2);
         System.out.println("Ordet är " + ord.length() + " bokstäver långt");
         System.out.println("");
         for (int i = 0; i < 69; i++){
-            String gissning = JOptionPane.showInputDialog("Bokstav?" + "(Bara en bokstav)");
+            gissning = JOptionPane.showInputDialog("Bokstav?" + "(Bara en bokstav eller hela ordet)");
             char charGissning = gissning.charAt(0);
             if (ord.contains(gissning)){
-                ord3[ord.indexOf(gissning)] = charGissning;
+                ord2[ord.indexOf(gissning)] = charGissning;
 
-                usedWords = usedWords + gissning;
-                vinst +=1;
                 System.out.println("Gissningen är rätt");
-                if (vinst == ord.length()){
+                if (gissning.equals(ord) || Arrays.equals(ord2,ordArray)){
                     break;
                 }
             } else {
@@ -40,13 +42,14 @@ public class hangman {
                 }
             }
             System.out.println("Ordet är: ");
-            System.out.println(ord3);
+            System.out.println(ord2);
             System.out.println("Bokstäver som blivit fel: " + fel);
             kvar = 9-antal_fel;
             System.out.println("Felaktiga gissningar kvar: " + kvar);
             System.out.println("");
         }
-        if (vinst == ord.length()){
+
+        if (gissning.equals(ord) || Arrays.equals(ord2,ordArray)){
             System.out.println("Du vann!");
             System.out.println("Ordet var: " + ord);
         } else {
