@@ -14,7 +14,7 @@ public class hangman {
         System.out.println("Ordet är: ");
         System.out.println(ord2);
         System.out.println("Ordet är " + ord.length() + " bokstäver långt");
-        System.out.println("");
+        System.out.println(" ");
         for (int i = 0; i < 69; i++){
             gissning = JOptionPane.showInputDialog("Bokstav?" + "(Bara en bokstav eller hela ordet)");
             char charGissning = gissning.charAt(0);
@@ -39,76 +39,78 @@ public class hangman {
                 }
             }
 
-            if (antal_fel == 1){
-                System.out.println("|");
-                System.out.println("|");
-                System.out.println("|");
-                System.out.println("|");
-                System.out.println("|");
-                System.out.println("|");
-            }
-            if (antal_fel == 2){
-                System.out.println("__________");
-                System.out.println("|");
-                System.out.println("|");
-                System.out.println("|");
-                System.out.println("|");
-                System.out.println("|");
-                System.out.println("|");
-            }
-            if (antal_fel == 3){
-                System.out.println("__________");
-                System.out.println("|       |");
-                System.out.println("|");
-                System.out.println("|");
-                System.out.println("|");
-                System.out.println("|");
-                System.out.println("|");
-            }
-            if (antal_fel == 4){
-                System.out.println("__________");
-                System.out.println("|       |");
-                System.out.println("|     {'_'}");
-                System.out.println("|");
-                System.out.println("|");
-                System.out.println("|");
-                System.out.println("|");
-            }
-            if (antal_fel == 5){
-                System.out.println("__________");
-                System.out.println("|       |");
-                System.out.println("|     {'_'}");
-                System.out.println("|       |");
-                System.out.println("|       |");
-                System.out.println("|");
-                System.out.println("|");
-            }
-            if (antal_fel == 6){
-                System.out.println("__________");
-                System.out.println("|       |");
-                System.out.println("|     {'_'}");
-                System.out.println("|       |");
-                System.out.println("|       |");
-                System.out.println("|      | |");
-                System.out.println("|");
-            }
-            if (antal_fel == 7){
-                System.out.println("__________");
-                System.out.println("|       |");
-                System.out.println("|     {'_'}");
-                System.out.println("|      -|-");
-                System.out.println("|       |");
-                System.out.println("|      | |");
-                System.out.println("|");
-            }
-            if (antal_fel == 8){
-                System.out.println("__________");
-                System.out.println("|       |");
-                System.out.println("|     {'_'}");
-                System.out.println("|      -|-");
-                System.out.println("|       |");
-                System.out.println("|      | |");
-                System.out.println("|");
+            if (antal_fel > 0) {            //existerar bara för att kunna enkelt stänga if-satserna
+                if (antal_fel == 1) {
+                    System.out.println("|");
+                    System.out.println("|");
+                    System.out.println("|");
+                    System.out.println("|");
+                    System.out.println("|");
+                    System.out.println("|");
+                }
+                if (antal_fel == 2) {
+                    System.out.println("__________");
+                    System.out.println("|/");
+                    System.out.println("|");
+                    System.out.println("|");
+                    System.out.println("|");
+                    System.out.println("|");
+                    System.out.println("|");
+                }
+                if (antal_fel == 3) {
+                    System.out.println("__________");
+                    System.out.println("|/      |");
+                    System.out.println("|");
+                    System.out.println("|");
+                    System.out.println("|");
+                    System.out.println("|");
+                    System.out.println("|");
+                }
+                if (antal_fel == 4) {
+                    System.out.println("__________");
+                    System.out.println("|/      |");
+                    System.out.println("|     {'_'}");
+                    System.out.println("|");
+                    System.out.println("|");
+                    System.out.println("|");
+                    System.out.println("|");
+                }
+                if (antal_fel == 5) {
+                    System.out.println("__________");
+                    System.out.println("|/      |");
+                    System.out.println("|     {'_'}");
+                    System.out.println("|       |");
+                    System.out.println("|       |");
+                    System.out.println("|");
+                    System.out.println("|");
+                }
+                if (antal_fel == 6) {
+                    System.out.println("__________");
+                    System.out.println("|/      |");
+                    System.out.println("|     {'_'}");
+                    System.out.println("|       |");
+                    System.out.println("|       |");
+                    System.out.println("|      | |");
+                    System.out.println("|");
+                }
+                if (antal_fel == 7) {
+                    System.out.println("__________");
+                    System.out.println("|/      |");
+                    System.out.println("|     {'_'}");
+                    System.out.println("|      -|-");
+                    System.out.println("|       |");
+                    System.out.println("|      | |");
+                    System.out.println("|");
+                }
+                if (antal_fel == 8) {
+                    System.out.println("__________");
+                    System.out.println("|/      |");
+                    System.out.println("|     {'.'}");
+                    System.out.println("|      -|-");
+                    System.out.println("|       |");
+                    System.out.println("|      | |");
+                    System.out.println("|");
+                }
             }
 
 
@@ -117,7 +119,7 @@ public class hangman {
             System.out.println("Bokstäver som blivit fel: " + fel);
             kvar = 9-antal_fel;
             System.out.println("Felaktiga gissningar kvar: " + kvar);
-            System.out.println("");
+            System.out.println(" ");
         }
 
         if (gissning.equals(ord) || Arrays.equals(ord2,ordArray)){
@@ -125,6 +127,14 @@ public class hangman {
             System.out.println("Ordet var: " + ord);
         } else {
             if (antal_fel == 9){
+                System.out.println("__________");
+                System.out.println("|/      |");
+                System.out.println("|     {x.x}");
+                System.out.println("|      -|-");
+                System.out.println("|       |");
+                System.out.println("|      | |");
+                System.out.println("|");
+
                 System.out.println("Du förlorade!");
                 System.out.println("Ordet var: " + ord);
             } else {
